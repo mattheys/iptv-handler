@@ -29,9 +29,9 @@ RUN rm ./target/release/deps/iptv* && \
 RUN cargo build --release
 
 # # The final base image
-FROM debian:stable-slim
+FROM debian:bullseye-slim
 RUN apt-get update && \ 
-    apt-get install libcurl4 libssl-dev -y 
+    apt-get install libcurl4 -y 
 
 # Copy from the previous build
 COPY --from=build /iptvmanager/target/release/server /usr/bin/server
