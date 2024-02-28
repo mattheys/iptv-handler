@@ -31,7 +31,7 @@ RUN cargo build --release
 # # The final base image
 FROM debian:stable-slim
 RUN apt-get update && \ 
-    apt-get install libcurl4 openssl -y 
+    apt-get install libcurl4 libssl-dev -y 
 
 # Copy from the previous build
 COPY --from=build /iptvmanager/target/release/server /usr/bin/server
